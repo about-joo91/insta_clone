@@ -149,10 +149,11 @@ body {
 .main_body {
     width: 935px;
     margin: 30px auto 0 auto;
+    display: flex;
 }
 
-.main_body_header {
-    display: flex;
+.main_body_left {
+    width: 614px;
 }
 
 
@@ -178,10 +179,8 @@ body {
 
 /* ======= 카드 박스 전체 ======= */
 .main_card_box {
-    width: 614px;
-    height: 900px;
-    position: relative;
-    top: -290px;
+    width: 100%;
+    margin-top: 30px;
 }
 
 /* ======= 카드 헤더 ======= */
@@ -214,19 +213,68 @@ body {
 
 /* ======= 카드 이미지 ======= */
 
-.card_image {
-    width: 614px;
-    height: 770px;
+.card_image_wrap {
+    width: 100%;
+    margin: auto;
+    overflow-x: hidden;
+    height: 774px;
 }
 
-.card_body_img {
+.card_main_image_box {
+    display: table;
+    float: left;
     width: 614px;
-    height: 770px;
-    object-fit: cover;
+    height: 774px;
 
 }
 
+.main_card_carousel_button {
+    height: 0px;
+}
 
+.carousel_prev_btn_circle {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50%;
+    z-index: 4;
+    position: relative;
+    top: 380px;
+    left: 10px;
+    box-shadow: 0 1px 0 0 gray;
+}
+
+.carousel_prev_btn_circle:hover {
+    cursor: pointer;
+}
+
+.prev_button_main_image {
+    margin: 6px 0 0 9px;
+    font-size: 14px;
+}
+
+.carousel_next_btn_circle {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50%;
+    z-index: 4;
+    position: relative;
+    top: 360px;
+    left: 572px;
+    box-shadow: 0 1px 0 0 gray;
+}
+
+.carousel_next_btn_circle:hover {
+    cursor: pointer;
+}
+
+.next_button_main_image {
+    margin: 6px 0 0 8px;
+    font-size: 14px;
+}
 
 /* ======= 카드 디스크립션 ======= */
 
