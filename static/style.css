@@ -6,9 +6,51 @@ body {
     margin: 0;
 }
 
-/* 메인헤더 박스 전체 */
-.main_header {
+.main_header,
+.main_header_contents,
+.search_bar_box,
+.icon_with_search_bar,
+.header_search_icon,
+.main_header_icon_box,
+.header_icons,
+.header_search_box,
+.main_header_name,
+.story_carousel,
+.main_card_box,
+.card_header,
+.card_header_front,
+.card_header_id,
+.card_header_id,
+.card_desc_icon_box,
+.desc_icon_box_front,
+.card_desc_liked_box,
+.liked_people,
+.self_desc,
+.comment_cnt,
+.days_before,
+.card_desc,
+.liked_people_first_p,
+.liked_people_solid_comment,
+.liked_people_txt,
+.solid_comment_cnt,
+.solid_comment_id,
+.self_desc,
+.self_desc_id,
+.self_desc_comment,
+.liked_box_comments,
+.liked_box_comment1_id,
+.liked_box_comment1_desc,
+.liked_box_comment1,
+.card_under_comment_box,
+.under_comment_box_input_tag,
+.card_under_comment_box_input_box,
+.emoji_icon,
+.card_under_comment_box_button {
     background-color: white;
+}
+
+/* ================ 메인헤더 박스 시작 ================ */
+.main_header {
     width: 100vw;
     height: 60px;
     box-shadow: 1px 1px rgb(219, 219, 219);
@@ -18,28 +60,33 @@ body {
 /* 컨텐츠들이 975px 안에 있기 때문에
     따로 컨텐츠 div로 묶음 */
 .main_header_contents {
-    background-color: white;
     width: 935px;
     display: flex;
     margin: auto;
     padding: 0px 20px 0px 20px;
 }
 
+/* ======= 메인 헤더 홈 네임카드 ======= */
+.main_header_name {
+    width: 33.5%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+}
 
-
+/* ======= 메인 헤더 검색창 ======= */
 .search_bar_box {
     width: 100%;
-    background-color: white;
 }
 
 .icon_with_search_bar {
     max-width: 315px;
     margin: auto;
     height: 60px;
-    background-color: white;
 
 }
 
+/* 인풋박스 */
 .header_input_field {
     height: 100%;
     width: 225px;
@@ -62,14 +109,9 @@ body {
     background-color: rgb(239, 239, 239);
 }
 
-.main_header_name {
-    width: 33.5%;
-    height: 60px;
-    line-height: 60px;
-}
+/* ======= 메인 헤더 아이콘 상자 ======= */
 
 .main_header_icon_box {
-    background-color: white;
     width: 35%;
     height: 24px;
     align-self: center;
@@ -81,22 +123,19 @@ body {
 }
 
 .header_search_box {
-    background-color: white;
     height: 60px;
 }
 
-.fa-house,
-.fa-paper-plane,
-.fa-square-plus,
-.fa-compass,
-.fa-heart {
+.home_icon,
+.dm_page_icon,
+.saved_video_icon,
+.recommend_page_icon,
+.my_liked_page_icon {
     font-size: 24px;
     margin-right: 20px;
-}
-
-.main_header_name {
     background-color: white;
 }
+
 
 .main_header_avatar {
     vertical-align: bottom;
@@ -105,21 +144,28 @@ body {
     border-radius: 50%;
 }
 
+/* ================ 메인바디 박스 시작 ================ */
+
 .main_body {
     width: 935px;
     margin: 30px auto 0 auto;
-
 }
 
 .main_body_header {
     display: flex;
 }
 
+
+
+/* ======= 스토리 캐러셀 ======= */
 .story_carousel {
-    background-color: white;
     width: 614px;
     height: 120px;
+    border: 1px solid rgb(219, 219, 219);
+    box-shadow: 1px rgb(219, 219, 219);
 }
+
+/* ======= 라이트 플롯 박스 ======= */
 
 .right_float_box {
     background-color: green;
@@ -130,10 +176,200 @@ body {
 
 }
 
+/* ======= 카드 박스 전체 ======= */
 .main_card_box {
-    background-color: white;
     width: 614px;
     height: 900px;
     position: relative;
     top: -290px;
+}
+
+/* ======= 카드 헤더 ======= */
+.card_header {
+    display: flex;
+    border: 1px solid rgb(219, 219, 219);
+    box-shadow: 1px rgb(219, 219, 219);
+    height: 65px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px 0 15px;
+}
+
+.card_header_front {
+    display: flex;
+    align-items: center;
+}
+
+.card_header_avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.card_header_icon {
+    color: black;
+
+}
+
+/* ======= 카드 이미지 ======= */
+
+.card_image {
+    width: 614px;
+    height: 770px;
+}
+
+.card_body_img {
+    width: 614px;
+    height: 770px;
+    object-fit: cover;
+
+}
+
+
+
+/* ======= 카드 디스크립션 ======= */
+
+.card_desc {
+    border: 1px solid rgb(219, 219, 219);
+    padding: 20px;
+}
+
+.card_desc_icon_box {
+    display: flex;
+    height: 25px;
+    justify-content: space-between;
+
+}
+
+.card_heart_icon,
+.card_comment_icon,
+.card_plain_icon,
+.card_bookmark_icon {
+    font-size: 24px;
+    margin-right: 20px;
+    background-color: white;
+}
+
+.liked_people_first_p {
+    margin: 20px 5px 0 0;
+    display: flex;
+    font-size: 16px;
+}
+
+.desc_liked_box_avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.liked_people_solid_comment {
+    display: flex;
+    align-items: center;
+}
+
+.solid_comment_id {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.solid_comment_cnt {
+
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.self_desc {
+    margin-top: 7px;
+    display: flex;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.self_desc_id {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.comment_cnt {
+    margin-top: 10px;
+    font-size: 16px;
+    color: rgb(174, 174, 174);
+}
+
+.liked_box_comment {
+    margin-top: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.liked_box_comment_txt {
+    display: flex;
+}
+
+.liked_box_comment_id {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.liked_box_comment_desc {
+    font-size: 17x;
+}
+
+
+.link_of_id {
+    color: blue;
+}
+
+.liked_box_comment_heart {
+    font-size: 12px;
+}
+
+.days_before {
+    margin-top: 7px;
+    font-size: 10px;
+    color: rgb(174, 174, 174);
+}
+
+/* ======= 카드 아래쪽 댓글 입력 상자 ======= */
+
+.card_under_comment_box {
+    height: 47px;
+    border-left: 1px rgb(219, 219, 219) solid;
+    border-bottom: 1px rgb(219, 219, 219) solid;
+    border-right: 1px rgb(219, 219, 219) solid;
+    padding: 6px 16px 6px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.card_under_comment_box_input_box {
+    display: flex;
+    align-items: center;
+}
+
+.under_comment_box_input_tag {
+    border: 0;
+    outline: 0;
+    width: 500px;
+    font-size: 15px;
+}
+
+.under_comment_box_input_tag :focus {
+    outline: none !important;
+}
+
+.emoji_icon {
+    font-size: 24px;
+    padding: 8px 16px 8px 0;
+}
+
+.card_under_comment_box_button {
+    font-size: 14px;
+    width: 80px;
+    color: rgb(65, 147, 239);
 }
