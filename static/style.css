@@ -2,54 +2,111 @@
     background-color: rgb(250, 250, 250);
 }
 
+body {
+    margin: 0;
+}
+
+/* 메인헤더 박스 전체 */
 .main_header {
+    background-color: white;
     width: 100vw;
     height: 60px;
-    background-color: white;
-    border-bottom: rgb(172, 172, 172), 1px, solid;
+    box-shadow: 1px 1px rgb(219, 219, 219);
     display: flex;
 }
 
+/* 컨텐츠들이 975px 안에 있기 때문에
+    따로 컨텐츠 div로 묶음 */
 .main_header_contents {
     background-color: white;
-    width: 975px;
+    width: 935px;
     display: flex;
     margin: auto;
+    padding: 0px 20px 0px 20px;
 }
 
-.icon_span {
-    float: right;
-    margin-right: 6px;
-    margin-top: -20px;
-    position: relative;
-    z-index: 2;
-    color: red;
+
+
+.search_bar_box {
+    width: 100%;
+    background-color: white;
+}
+
+.icon_with_search_bar {
+    max-width: 315px;
+    margin: auto;
+    height: 60px;
+    background-color: white;
+
+}
+
+.header_input_field {
+    height: 100%;
+    width: 225px;
+    padding: 10px 0 9px 45px;
+    margin: 11px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: rgb(239, 239, 239);
+    font-size: 15px;
+}
+
+.header_search_icon {
+    margin: 14px 0 0 20px;
+    position: absolute;
+    padding: 8px 10px 0 7px;
+    color: rgb(142, 142, 142);
+    z-index: 4;
+    width: 15px;
+    height: 15px;
+    background-color: rgb(239, 239, 239);
 }
 
 .main_header_name {
-    width: 34%;
+    width: 33.5%;
     height: 60px;
     line-height: 60px;
 }
 
 .main_header_icon_box {
     background-color: white;
-    width: 34%;
-    height: 60px;
+    width: 35%;
+    height: 24px;
+    align-self: center;
+}
+
+.header_icons {
+    padding-left: 24px;
+    float: right;
 }
 
 .header_search_box {
     background-color: white;
-    width: 32%;
     height: 60px;
+}
+
+.fa-house,
+.fa-paper-plane,
+.fa-square-plus,
+.fa-compass,
+.fa-heart {
+    font-size: 24px;
+    margin-right: 20px;
 }
 
 .main_header_name {
     background-color: white;
 }
 
+.main_header_avatar {
+    vertical-align: bottom;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
 .main_body {
-    width: 975px;
+    width: 935px;
     margin: 30px auto 0 auto;
 
 }
@@ -60,7 +117,7 @@
 
 .story_carousel {
     background-color: white;
-    width: 615px;
+    width: 614px;
     height: 120px;
 }
 
@@ -75,7 +132,7 @@
 
 .main_card_box {
     background-color: white;
-    width: 615px;
+    width: 614px;
     height: 900px;
     position: relative;
     top: -290px;
