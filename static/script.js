@@ -32,11 +32,17 @@ function draw_header() {
                             <i class="fa-solid fa-ellipsis"></i>
                             `
     document.querySelector('.card_header').innerHTML = main_card_header_html
-    // 메인 카드 바디에 이미지 추가
+    // 메인 카드 바디에 carousel 버튼 추가
     main_card_body_html = `
-    <img src="/static/images/pretty_image.jpg" class="card_body_img">
+                            <div class="carousel_prev_btn_circle">
+                                <i class="fa-solid fa-angle-left prev_button_main_image"></i>
+                            </div>
+                            <div class="carousel_next_btn_circle">
+                                <i class="fa-solid fa-chevron-right next_button_main_image"></i>
+                            </div>
+                            
                             `
-    document.querySelector('.card_image').innerHTML = main_card_body_html
+    document.querySelector('.main_card_carousel_button').innerHTML = main_card_body_html
     desc_icon_box_html = `
                         <div class="desc_icon_box_front">
                         <i class="fa-solid fa-heart card_heart_icon"></i>
@@ -99,14 +105,63 @@ function draw_header() {
     document.querySelector('.card_under_comment_box').innerHTML = card_under_comment_box_html
 }
 draw_header()
+let image_url_list = [
+    'beautiful.jpg',
+    'flower.jpg',
+    'pretty_image.jpg',
+    'sunset.jpg'
+]
+const image_width = 614
+const card_main_image_box = document.querySelector('.card_main_image_box');
+const button_next = document.querySelector('.carousel_next_btn_circle');
+const button_prev = document.querySelector('.carousel_prev_btn_circle')
 const search_input_box = document.querySelector(".header_input_field")
 const search_bar_icon = document.querySelector(".header_search_icon")
+button_prev.style.visibility = 'hidden'
 search_input_box.addEventListener('focus', (event) => {
     search_input_box.style.paddingLeft = "10px";
+    search_input_box.style.paddingRight = "40px"
     search_bar_icon.style.visibility = "hidden";
 })
 search_input_box.addEventListener('focusout', (e) => {
     e.target.style.paddingLeft = "50px";
+    e.target.style.paddingRight = "0px"
     search_bar_icon.style.visibility = "visible";
 })
+card_main_image_box.style.width = image_width * image_url_list.length + "px";
 
+let curIdx = 0;
+for (let i = 0; i < image_url_list.length; i++) {
+    tmp_html = `
+                <img src="/static/images/${image_url_list[i]}"></img>
+                `
+    card_main_image_box.innerHTML += tmp_html
+}
+button_next.addEventListener('click', function () {
+    if (curIdx < image_url_list.length - 1) {
+        button_next.style.visibility = 'visible'
+        button_prev.style.visibility = 'visible'
+        card_main_image_box.style.trasition = "1000ms";
+        card_main_image_box.style.transform = "translate3d(-" + (image_width * (curIdx + 1)) + "px, 0px, 0px)";
+        curIdx += 1
+    }
+    if (curIdx == image_url_list.length - 1) {
+        button_next.style.visibility = "hidden";
+    }
+});
+button_prev.addEventListener('click', function () {
+    if (curIdx > 0) {
+        button_prev.style.visibility = 'visible'
+        button_next.style.visibility = 'visible'
+        card_main_image_box.style.trasition = "1000ms";
+        card_main_image_box.style.transform = "translate3d(-" + (image_width * (curIdx - 1)) + "px, 0px,0px)";
+        curIdx -= 1
+    }
+    if (curIdx === 0) {
+        button_prev.style.visibility = 'hidden';
+    }
+})
+
+for (let i = 0; i < 4; i += 0.5) {
+    console.log(i)
+}
