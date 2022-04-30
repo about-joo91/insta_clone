@@ -240,16 +240,101 @@ body {
 }
 
 
-/* ======= 라이트 플롯 박스 ======= */
+/* ================ 라이트 플롯 박스 시작 ================ */
+
 
 .right_float_box {
-    background-color: green;
     width: 300px;
     height: 445px;
     position: relative;
-    left: 30px;
-
+    margin: 30px 0 0 30px;
 }
+
+
+/* ======= 내 계정 박스 ======= */
+.rf_my_avatar_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.rf_my_avatar_front {
+    display: flex;
+}
+
+.rf_my_avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.rf_my_text {
+    margin-left: 20px;
+}
+
+.rf_my_text_name {
+    color: rgb(174, 174, 174);
+}
+
+.rf_my_button {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(65, 147, 239);
+}
+
+/* ======= 추천 계정 박스 ======= */
+
+.rf_recommend_thin_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rf_recommend_thin_box_text {
+    font-size: 14px;
+    color: rgb(142, 142, 142);
+}
+
+.rf_recommend_thin_box_button {
+    font-size: 14px;
+}
+
+.rf_recommend_account_front {
+    display: flex;
+}
+
+.rf_recommend_big_box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rf_recommend_box_avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.rf_recommend_box_text {
+    margin-left: 10px;
+}
+
+.rf_recommend_box_id {
+    font-weight: bold;
+}
+
+.rf_recommend_box_follower {
+    font-size: 14px;
+    color: rgb(142, 142, 142);
+}
+
+.rf_recommend_box_button {
+    color: rgb(65, 147, 239);
+    font-size: 11px;
+    font-weight: bold;
+}
+
 
 /* ======= 카드 박스 전체 ======= */
 .main_card_box {
