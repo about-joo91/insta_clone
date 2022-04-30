@@ -133,10 +133,12 @@ card_main_image_box.style.width = image_width * image_url_list.length + "px";
 let curIdx = 0;
 for (let i = 0; i < image_url_list.length; i++) {
     tmp_html = `
-                <img src="/static/images/${image_url_list[i]}"></img>
+                <img src="/static/images/main_card_image/${image_url_list[i]}"></img>
                 `
     card_main_image_box.innerHTML += tmp_html
 }
+
+
 button_next.addEventListener('click', function () {
     if (curIdx < image_url_list.length - 1) {
         button_next.style.visibility = 'visible'
