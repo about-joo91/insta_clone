@@ -190,12 +190,54 @@ body {
     border-radius: 50%;
 }
 
+.story_carousel_button {
+    height: 0px;
+}
+
 .story_carousel_circle_avatar {
     padding-top: 2.5px;
     width: 55px;
     height: 55px;
     border-radius: 50%;
 }
+
+.story_carousel_prev_btn_circle {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50%;
+    z-index: 4;
+    position: relative;
+    top: 45px;
+    left: 10px;
+    box-shadow: 0 1px 0 0 gray;
+}
+
+
+.prev_button_story_image,
+.next_button_story_image {
+    margin: 6px 0 0 8px;
+}
+
+.story_carousel_next_btn_circle {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50%;
+    z-index: 4;
+    position: relative;
+    top: 25px;
+    left: 572px;
+    box-shadow: 0 1px 0 0 blur;
+}
+
+.story_carousel_next_btn_circle:hover,
+.story_carousel_prev_btn_circle:hover {
+    cursor: pointer;
+}
+
 
 /* ======= 라이트 플롯 박스 ======= */
 
