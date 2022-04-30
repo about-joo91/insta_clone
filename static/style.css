@@ -173,6 +173,7 @@ body {
     display: flex;
     float: left;
     height: 120px;
+
 }
 
 .story_carousel_box {
@@ -291,14 +292,14 @@ body {
     width: 100%;
     margin: auto;
     overflow-x: hidden;
-    height: 774px;
+    height: 100%;
 }
 
 .card_main_image_box {
     display: table;
     float: left;
     width: 614px;
-    height: 774px;
+    height: 100%;
 
 }
 
