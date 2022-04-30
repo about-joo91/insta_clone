@@ -32,17 +32,26 @@ function draw_header() {
                             <i class="fa-solid fa-ellipsis"></i>
                             `
     document.querySelector('.card_header').innerHTML = main_card_header_html
+    // story_box에 캐러셀 버튼 추가
+    story_carousel_button = `
+                            <div class="story_carousel_prev_btn_circle">
+                                <i class="fa-solid fa-angle-left prev_button_story_image"></i>
+                            </div>
+                            <div class="story_carousel_next_btn_circle">
+                                <i class="fa-solid fa-chevron-right next_button_story_image"></i>
+                            </div>
+                            `
+    document.querySelector('.story_carousel_button').innerHTML = story_carousel_button
     // 메인 카드 바디에 carousel 버튼 추가
-    main_card_body_html = `
+    main_card_carousel_button_html = `
                             <div class="carousel_prev_btn_circle">
                                 <i class="fa-solid fa-angle-left prev_button_main_image"></i>
                             </div>
                             <div class="carousel_next_btn_circle">
                                 <i class="fa-solid fa-chevron-right next_button_main_image"></i>
                             </div>
-                            
                             `
-    document.querySelector('.main_card_carousel_button').innerHTML = main_card_body_html
+    document.querySelector('.main_card_carousel_button').innerHTML = main_card_carousel_button_html
     desc_icon_box_html = `
                         <div class="desc_icon_box_front">
                         <i class="fa-solid fa-heart card_heart_icon"></i>
@@ -113,14 +122,19 @@ let image_url_list = [
 ]
 const image_width = 614
 const card_main_image_box = document.querySelector('.card_main_image_box');
-const button_next = document.querySelector('.carousel_next_btn_circle');
-const button_prev = document.querySelector('.carousel_prev_btn_circle')
-const search_input_box = document.querySelector(".header_input_field")
-const search_bar_icon = document.querySelector(".header_search_icon")
-button_prev.style.visibility = 'hidden'
-search_input_box.addEventListener('focus', (event) => {
-    search_input_box.style.paddingLeft = "10px";
-    search_input_box.style.paddingRight = "40px"
+const main_card_carousel_button_next = document.querySelector('.carousel_next_btn_circle');
+const main_card_carousel_button_prev = document.querySelector('.carousel_prev_btn_circle');
+const search_input_box = document.querySelector(".header_input_field");
+const search_bar_icon = document.querySelector(".header_search_icon");
+const story_carousel_box = document.querySelector('.story_box');
+const story_carousel_button_prev = document.querySelector('.story_carousel_prev_btn_circle');
+const story_carousel_button_next = document.querySelector('.story_carousel_next_btn_circle');
+main_card_carousel_button_prev.style.visibility = 'hidden';
+story_carousel_button_prev.style.visibility = 'hidden';
+// input_box 포커스 컨트롤러
+search_input_box.addEventListener('focus', (e) => {
+    e.target.style.paddingLeft = "10px";
+    e.target.style.paddingRight = "40px"
     search_bar_icon.style.visibility = "hidden";
 })
 search_input_box.addEventListener('focusout', (e) => {
@@ -128,40 +142,78 @@ search_input_box.addEventListener('focusout', (e) => {
     e.target.style.paddingRight = "0px"
     search_bar_icon.style.visibility = "visible";
 })
+// 메인카드 캐러셀 컨트롤러
 card_main_image_box.style.width = image_width * image_url_list.length + "px";
 
 let curIdx = 0;
 for (let i = 0; i < image_url_list.length; i++) {
     tmp_html = `
-                <img src="/static/images/${image_url_list[i]}"></img>
+                <img src="/static/images/main_card_image/${image_url_list[i]}"></img>
                 `
     card_main_image_box.innerHTML += tmp_html
 }
-button_next.addEventListener('click', function () {
+
+main_card_carousel_button_next.addEventListener('click', function () {
     if (curIdx < image_url_list.length - 1) {
-        button_next.style.visibility = 'visible'
-        button_prev.style.visibility = 'visible'
+        main_card_carousel_button_next.style.visibility = 'visible'
+        main_card_carousel_button_prev.style.visibility = 'visible'
         card_main_image_box.style.trasition = "1000ms";
         card_main_image_box.style.transform = "translate3d(-" + (image_width * (curIdx + 1)) + "px, 0px, 0px)";
         curIdx += 1
     }
-    if (curIdx == image_url_list.length - 1) {
-        button_next.style.visibility = "hidden";
+    if (curIdx === image_url_list.length - 1) {
+        main_card_carousel_button_next.style.visibility = "hidden";
     }
 });
-button_prev.addEventListener('click', function () {
+main_card_carousel_button_prev.addEventListener('click', function () {
     if (curIdx > 0) {
-        button_prev.style.visibility = 'visible'
-        button_next.style.visibility = 'visible'
+        main_card_carousel_button_prev.style.visibility = 'visible'
+        main_card_carousel_button_next.style.visibility = 'visible'
         card_main_image_box.style.trasition = "1000ms";
         card_main_image_box.style.transform = "translate3d(-" + (image_width * (curIdx - 1)) + "px, 0px,0px)";
         curIdx -= 1
     }
     if (curIdx === 0) {
-        button_prev.style.visibility = 'hidden';
+        main_card_carousel_button_prev.style.visibility = 'hidden';
     }
 })
 
-for (let i = 0; i < 4; i += 0.5) {
-    console.log(i)
+for (let i = 0; i < 16; i++) {
+    tmp_html = `
+                <div class="story_carousel_box">
+                        <div class="story_avatar_outline_border">
+                            <img class="story_carousel_circle_avatar" src ="/static/images/story_image/surf.jpg" width="55" height="55">
+                        </div>
+                    <div class="story_carousel_id">
+                        about_joo
+                    </div>
+                </div>
+                `
+    document.querySelector('.story_box').innerHTML += tmp_html
 }
+
+// 스토리 캐러셀 컨트롤러
+story_carousel_width = parseInt(80 * 16)
+story_carousel_box.style.width = story_carousel_width + "px"
+story_btn_cnt = parseInt((80 * 16) / 315) - 1
+cur_story_idx = 0
+story_carousel_button_next.addEventListener('click', function () {
+    if (++cur_story_idx == story_btn_cnt - 1) {
+        story_carousel_box.style.trasition = "300ms";
+        story_carousel_box.style.transform = "translate3d(-" + (story_carousel_width - 580) + "px,0px, 0px)";
+        story_carousel_button_next.style.visibility = "hidden";
+    }
+    story_carousel_box.style.trasition = "300ms";
+    story_carousel_box.style.transform = "translate3d(-" + 310 * cur_story_idx + "px,0px, 0px)";
+    story_carousel_button_prev.style.visibility = 'visible';
+})
+story_carousel_button_prev.addEventListener('click', function () {
+    if (--cur_story_idx == 0) {
+        story_carousel_box.style.trasition = "300ms";
+        story_carousel_box.style.transform = "translate3d(0px,0px, 0px)";
+        story_carousel_button_prev.style.visibility = "hidden";
+    }
+    story_carousel_box.style.trasition = "300ms";
+    story_carousel_box.style.transform = "translate3d(-" + 310 * cur_story_idx + "px,0px, 0px)";
+    story_carousel_button_next.style.visibility = 'visible';
+})

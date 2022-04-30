@@ -160,11 +160,84 @@ body {
 
 /* ======= 스토리 캐러셀 ======= */
 .story_carousel {
-    width: 614px;
+    width: 100%;
+    margin: auto;
+    overflow-x: hidden;
     height: 120px;
     border: 1px solid rgb(219, 219, 219);
     box-shadow: 1px rgb(219, 219, 219);
 }
+
+.story_box {
+    padding: 10px;
+    display: flex;
+    float: left;
+    height: 120px;
+}
+
+.story_carousel_box {
+    margin: 10px;
+    width: 60px;
+    height: 80px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.story_avatar_outline_border {
+    width: 60px;
+    height: 60px;
+    border: 1px salmon solid;
+    border-radius: 50%;
+}
+
+.story_carousel_button {
+    height: 0px;
+}
+
+.story_carousel_circle_avatar {
+    padding-top: 2.5px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.story_carousel_prev_btn_circle {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50%;
+    z-index: 4;
+    position: relative;
+    top: 45px;
+    left: 10px;
+    box-shadow: 0 1px 0 0 gray;
+}
+
+
+.prev_button_story_image,
+.next_button_story_image {
+    margin: 6px 0 0 8px;
+}
+
+.story_carousel_next_btn_circle {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50%;
+    z-index: 4;
+    position: relative;
+    top: 25px;
+    left: 572px;
+    box-shadow: 0 1px 0 0 blur;
+}
+
+.story_carousel_next_btn_circle:hover,
+.story_carousel_prev_btn_circle:hover {
+    cursor: pointer;
+}
+
 
 /* ======= 라이트 플롯 박스 ======= */
 
@@ -210,6 +283,7 @@ body {
     color: black;
 
 }
+
 
 /* ======= 카드 이미지 ======= */
 
