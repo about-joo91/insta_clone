@@ -113,7 +113,7 @@ function draw_header() {
     <div class="card_under_comment_box_button">게시</div>
     `
     document.querySelector('.card_under_comment_box').innerHTML = card_under_comment_box_html
-
+    // 라이트 플롯 박스 내 계정칸
     rf_float_box_my_account_html = `
                                 
                                     <div class="rf_my_avatar_front">
@@ -127,6 +127,8 @@ function draw_header() {
                                 
                                 `
     document.querySelector('.rf_my_avatar_box').innerHTML = rf_float_box_my_account_html
+    // 라이트 플롯 박스 추천 계정 칸
+
 }
 draw_header()
 let image_url_list = [
@@ -166,6 +168,22 @@ for (let i = 0; i < image_url_list.length; i++) {
                 <img src="/static/images/main_card_image/${image_url_list[i]}"></img>
                 `
     card_main_image_box.innerHTML += tmp_html
+}
+
+for (let i = 0; i < 5; i++) {
+    rf_float_box_recommend_account_html = `
+    <div class="rf_recommend_big_box">
+        <div class="rf_recommend_account_front">
+            <img src="/static/images/space.jpg" class="rf_recommend_box_avatar">
+            <div class="rf_recommend_box_text">
+                <div class="rf_recommend_box_id">amigos</div>
+                <div class="rf_recommend_box_follower">about_joo님이 팔로우합니다</div>    
+            </div>
+        </div>
+        <div class="rf_recommend_box_button">팔로우</div>
+    </div>
+    `
+    document.querySelector('.rf_recommend').innerHTML += rf_float_box_recommend_account_html
 }
 
 main_card_carousel_button_next.addEventListener('click', function () {
