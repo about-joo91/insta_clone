@@ -128,10 +128,10 @@ const search_input_box = document.querySelector(".header_input_field");
 const search_bar_icon = document.querySelector(".header_search_icon");
 const story_carousel_box = document.querySelector('.story_box');
 const story_carousel_button_prev = document.querySelector('.story_carousel_prev_btn_circle');
-const story_carousel_button_next = document.querySelector('story_carousel_next_btn_circle');
+const story_carousel_button_next = document.querySelector('.story_carousel_next_btn_circle');
 main_card_carousel_button_prev.style.visibility = 'hidden';
 story_carousel_button_prev.style.visibility = 'hidden';
-
+// input_box 포커스 컨트롤러
 search_input_box.addEventListener('focus', (e) => {
     e.target.style.paddingLeft = "10px";
     e.target.style.paddingRight = "40px"
@@ -142,8 +142,8 @@ search_input_box.addEventListener('focusout', (e) => {
     e.target.style.paddingRight = "0px"
     search_bar_icon.style.visibility = "visible";
 })
+// 메인카드 캐러셀 컨트롤러
 card_main_image_box.style.width = image_width * image_url_list.length + "px";
-
 
 let curIdx = 0;
 for (let i = 0; i < image_url_list.length; i++) {
@@ -152,20 +152,6 @@ for (let i = 0; i < image_url_list.length; i++) {
                 `
     card_main_image_box.innerHTML += tmp_html
 }
-for (let i = 0; i < 16; i++) {
-    tmp_html = `
-                <div class="story_carousel_box">
-                        <div class="story_avatar_outline_border">
-                            <img class="story_carousel_circle_avatar" src ="/static/images/story_image/surf.jpg" width="55" height="55">
-                        </div>
-                    <div class="story_carousel_id">
-                        about_joo
-                    </div>
-                </div>
-                `
-    document.querySelector('.story_box').innerHTML += tmp_html
-}
-
 
 main_card_carousel_button_next.addEventListener('click', function () {
     if (curIdx < image_url_list.length - 1) {
@@ -175,8 +161,8 @@ main_card_carousel_button_next.addEventListener('click', function () {
         card_main_image_box.style.transform = "translate3d(-" + (image_width * (curIdx + 1)) + "px, 0px, 0px)";
         curIdx += 1
     }
-    if (curIdx == image_url_list.length - 1) {
-        button_next.style.visibility = "hidden";
+    if (curIdx === image_url_list.length - 1) {
+        main_card_carousel_button_next.style.visibility = "hidden";
     }
 });
 main_card_carousel_button_prev.addEventListener('click', function () {
@@ -192,6 +178,42 @@ main_card_carousel_button_prev.addEventListener('click', function () {
     }
 })
 
-for (let i = 0; i < 4; i += 0.5) {
-    console.log(i)
+for (let i = 0; i < 16; i++) {
+    tmp_html = `
+                <div class="story_carousel_box">
+                        <div class="story_avatar_outline_border">
+                            <img class="story_carousel_circle_avatar" src ="/static/images/story_image/surf.jpg" width="55" height="55">
+                        </div>
+                    <div class="story_carousel_id">
+                        about_joo
+                    </div>
+                </div>
+                `
+    document.querySelector('.story_box').innerHTML += tmp_html
 }
+
+// 스토리 캐러셀 컨트롤러
+story_carousel_width = parseInt(80 * 16)
+story_carousel_box.style.width = story_carousel_width + "px"
+story_btn_cnt = parseInt((80 * 16) / 315) - 1
+cur_story_idx = 0
+story_carousel_button_next.addEventListener('click', function () {
+    if (++cur_story_idx == story_btn_cnt - 1) {
+        story_carousel_box.style.trasition = "300ms";
+        story_carousel_box.style.transform = "translate3d(-" + (story_carousel_width - 580) + "px,0px, 0px)";
+        story_carousel_button_next.style.visibility = "hidden";
+    }
+    story_carousel_box.style.trasition = "300ms";
+    story_carousel_box.style.transform = "translate3d(-" + 310 * cur_story_idx + "px,0px, 0px)";
+    story_carousel_button_prev.style.visibility = 'visible';
+})
+story_carousel_button_prev.addEventListener('click', function () {
+    if (--cur_story_idx == 0) {
+        story_carousel_box.style.trasition = "300ms";
+        story_carousel_box.style.transform = "translate3d(0px,0px, 0px)";
+        story_carousel_button_prev.style.visibility = "hidden";
+    }
+    story_carousel_box.style.trasition = "300ms";
+    story_carousel_box.style.transform = "translate3d(-" + 310 * cur_story_idx + "px,0px, 0px)";
+    story_carousel_button_next.style.visibility = 'visible';
+})
