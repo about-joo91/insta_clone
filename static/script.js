@@ -28,7 +28,7 @@ function draw_header() {
                                 <img src="/static/images/character.jpeg" class ="card_header_avatar"></img>
                                 <div class = "card_header_id">about_joo</div>
                             </div>
-                            <i class="fa-solid fa-ellipsis"></i>
+                            <i class="fa-solid fa-ellipsis modal_btn"></i>
                             `
     document.querySelector('.card_header').innerHTML = main_card_header_html
     // story_box에 캐러셀 버튼 추가
@@ -146,6 +146,8 @@ const search_bar_icon = document.querySelector(".header_search_icon");
 const story_carousel_box = document.querySelector('.story_box');
 const story_carousel_button_prev = document.querySelector('.story_carousel_prev_btn_circle');
 const story_carousel_button_next = document.querySelector('.story_carousel_next_btn_circle');
+const modal_btn = document.querySelector('.modal_btn');
+const exit_from_modal_btn = document.querySelector('.exit_from_modal')
 main_card_carousel_button_prev.style.visibility = 'hidden';
 story_carousel_button_prev.style.visibility = 'hidden';
 // input_box 포커스 컨트롤러
@@ -161,7 +163,7 @@ search_input_box.addEventListener('focusout', (e) => {
 })
 // 메인카드 캐러셀 컨트롤러
 card_main_image_box.style.width = image_width * image_url_list.length + "px";
-
+// 카드 이미지 html 추가 for문
 let curIdx = 0;
 for (let i = 0; i < image_url_list.length; i++) {
     tmp_html = `
@@ -169,7 +171,7 @@ for (let i = 0; i < image_url_list.length; i++) {
                 `
     card_main_image_box.innerHTML += tmp_html
 }
-
+// 라이트 플로팅 박스 html 추가 for문
 for (let i = 0; i < 5; i++) {
     rf_float_box_recommend_account_html = `
     <div class="rf_recommend_big_box">
@@ -185,7 +187,21 @@ for (let i = 0; i < 5; i++) {
     `
     document.querySelector('.rf_recommend').innerHTML += rf_float_box_recommend_account_html
 }
-
+// 스토리 캐러셀 이미지 추가 html for문
+for (let i = 0; i < 16; i++) {
+    tmp_html = `
+                <div class="story_carousel_box">
+                        <div class="story_avatar_outline_border">
+                            <img class="story_carousel_circle_avatar" src ="/static/images/story_image/surf.jpg" width="55" height="55">
+                        </div>
+                    <div class="story_carousel_id">
+                        about_joo
+                    </div>
+                </div>
+                `
+    document.querySelector('.story_box').innerHTML += tmp_html
+}
+// 메인카드 캐러셀 버튼
 main_card_carousel_button_next.addEventListener('click', function () {
     if (curIdx < image_url_list.length - 1) {
         main_card_carousel_button_next.style.visibility = 'visible'
@@ -212,19 +228,7 @@ main_card_carousel_button_prev.addEventListener('click', function () {
     }
 })
 
-for (let i = 0; i < 16; i++) {
-    tmp_html = `
-                <div class="story_carousel_box">
-                        <div class="story_avatar_outline_border">
-                            <img class="story_carousel_circle_avatar" src ="/static/images/story_image/surf.jpg" width="55" height="55">
-                        </div>
-                    <div class="story_carousel_id">
-                        about_joo
-                    </div>
-                </div>
-                `
-    document.querySelector('.story_box').innerHTML += tmp_html
-}
+
 
 // 스토리 캐러셀 컨트롤러
 story_carousel_width = parseInt(80 * 16)
@@ -253,4 +257,17 @@ story_carousel_button_prev.addEventListener('click', function () {
     story_carousel_box.style.trasition = 500 + "ms";
     story_carousel_box.style.transform = "translate3d(-" + 315 * cur_story_idx + "px,0px, 0px)";
     story_carousel_button_next.style.visibility = 'visible';
+})
+
+// 모달 컨트롤러
+
+modal_btn.addEventListener('click', () => {
+    document.querySelector('.modal').style.display = "flex";
+    console.log(document.querySelector('.modal').parentNode)
+    console.log(document.body.style)
+    document.body.style.overflow = "hidden";
+})
+exit_from_modal_btn.addEventListener('click', () => {
+    document.querySelector('.modal').style.display = "none";
+    document.body.style.overflow = "auto"
 })
