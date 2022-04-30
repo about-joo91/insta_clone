@@ -137,7 +137,19 @@ for (let i = 0; i < image_url_list.length; i++) {
                 `
     card_main_image_box.innerHTML += tmp_html
 }
-
+for (let i = 0; i < 16; i++) {
+    tmp_html = `
+                <div class="story_carousel_box">
+                        <div class="story_avatar_outline_border">
+                            <img class="story_carousel_circle_avatar" src ="/static/images/story_image/surf.jpg" width="55" height="55">
+                        </div>
+                    <div class="story_carousel_id">
+                        about_joo
+                    </div>
+                </div>
+                `
+    document.querySelector('.story_box').innerHTML += tmp_html
+}
 
 button_next.addEventListener('click', function () {
     if (curIdx < image_url_list.length - 1) {

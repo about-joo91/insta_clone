@@ -160,10 +160,41 @@ body {
 
 /* ======= 스토리 캐러셀 ======= */
 .story_carousel {
-    width: 614px;
+    width: 100%;
+    margin: auto;
+    overflow-x: hidden;
     height: 120px;
     border: 1px solid rgb(219, 219, 219);
     box-shadow: 1px rgb(219, 219, 219);
+}
+
+.story_box {
+    padding: 10px;
+    display: flex;
+    float: left;
+    width: 614px;
+}
+
+.story_carousel_box {
+    margin: 10px;
+    width: 60px;
+    height: 80px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.story_avatar_outline_border {
+    width: 60px;
+    height: 60px;
+    border: 1px salmon solid;
+    border-radius: 50%;
+}
+
+.story_carousel_circle_avatar {
+    padding-top: 2.5px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
 }
 
 /* ======= 라이트 플롯 박스 ======= */
@@ -210,6 +241,7 @@ body {
     color: black;
 
 }
+
 
 /* ======= 카드 이미지 ======= */
 
