@@ -21,7 +21,6 @@ function draw_header() {
                         <img src="/static/images/character.jpeg" alt="Avatar" class="main_header_avatar">
                     </div>
                     `
-
     document.querySelector('.main_header_icon_box').innerHTML = icon_box_html
     // card_header_front에 avatar와 아이디 ellipsis 추가
     main_card_header_html = `
@@ -157,8 +156,9 @@ main_card_carousel_button_next.addEventListener('click', function () {
     if (curIdx < image_url_list.length - 1) {
         main_card_carousel_button_next.style.visibility = 'visible'
         main_card_carousel_button_prev.style.visibility = 'visible'
-        card_main_image_box.style.trasition = "1000ms";
-        card_main_image_box.style.transform = "translate3d(-" + (image_width * (curIdx + 1)) + "px, 0px, 0px)";
+        let next_page = (image_width * (curIdx + 1))
+        card_main_image_box.style.transition = 500 + "ms"
+        card_main_image_box.style.transform = "translate3d(-" + next_page + "px, 0px, 0px)";
         curIdx += 1
     }
     if (curIdx === image_url_list.length - 1) {
@@ -169,7 +169,7 @@ main_card_carousel_button_prev.addEventListener('click', function () {
     if (curIdx > 0) {
         main_card_carousel_button_prev.style.visibility = 'visible'
         main_card_carousel_button_next.style.visibility = 'visible'
-        card_main_image_box.style.trasition = "1000ms";
+        card_main_image_box.style.trasition = 500 + "ms";
         card_main_image_box.style.transform = "translate3d(-" + (image_width * (curIdx - 1)) + "px, 0px,0px)";
         curIdx -= 1
     }
@@ -198,22 +198,25 @@ story_carousel_box.style.width = story_carousel_width + "px"
 story_btn_cnt = parseInt((80 * 16) / 315) - 1
 cur_story_idx = 0
 story_carousel_button_next.addEventListener('click', function () {
-    if (++cur_story_idx == story_btn_cnt - 1) {
-        story_carousel_box.style.trasition = "300ms";
+    if (++cur_story_idx == story_btn_cnt) {
+        console.log('?')
+        story_carousel_box.style.transition = 500 + "ms"
         story_carousel_box.style.transform = "translate3d(-" + (story_carousel_width - 580) + "px,0px, 0px)";
         story_carousel_button_next.style.visibility = "hidden";
     }
-    story_carousel_box.style.trasition = "300ms";
-    story_carousel_box.style.transform = "translate3d(-" + 310 * cur_story_idx + "px,0px, 0px)";
-    story_carousel_button_prev.style.visibility = 'visible';
+    else {
+        story_carousel_box.style.transition = 500 + "ms"
+        story_carousel_box.style.transform = "translate3d(-" + 315 * cur_story_idx + "px,0px, 0px)";
+        story_carousel_button_prev.style.visibility = 'visible'
+    }
 })
 story_carousel_button_prev.addEventListener('click', function () {
     if (--cur_story_idx == 0) {
-        story_carousel_box.style.trasition = "300ms";
+        story_carousel_box.style.trasition = 500 + "ms";
         story_carousel_box.style.transform = "translate3d(0px,0px, 0px)";
         story_carousel_button_prev.style.visibility = "hidden";
     }
-    story_carousel_box.style.trasition = "300ms";
-    story_carousel_box.style.transform = "translate3d(-" + 310 * cur_story_idx + "px,0px, 0px)";
+    story_carousel_box.style.trasition = 500 + "ms";
+    story_carousel_box.style.transform = "translate3d(-" + 315 * cur_story_idx + "px,0px, 0px)";
     story_carousel_button_next.style.visibility = 'visible';
 })
