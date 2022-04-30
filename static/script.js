@@ -103,6 +103,8 @@ function draw_header() {
                             </div>
                             `
     document.querySelector('.card_desc_liked_box').innerHTML = desc_liked_box_html
+
+    // 카드 아래 댓글창
     card_under_comment_box_html = `
     <div class="card_under_comment_box_input_box">
         <i class="fa-solid fa-face-smile emoji_icon"></i>
@@ -111,6 +113,20 @@ function draw_header() {
     <div class="card_under_comment_box_button">게시</div>
     `
     document.querySelector('.card_under_comment_box').innerHTML = card_under_comment_box_html
+
+    rf_float_box_my_account_html = `
+                                
+                                    <div class="rf_my_avatar_front">
+                                        <img src="/static/images/character.jpeg" class="rf_my_avatar">
+                                        <div class="rf_my_text">
+                                            <div class="rf_my_text_id">about_joo</div>
+                                            <div class="rf_my_text_name">joo</div>
+                                        </div>
+                                    </div>
+                                    <div class="rf_my_button">전환</div>
+                                
+                                `
+    document.querySelector('.rf_my_avatar_box').innerHTML = rf_float_box_my_account_html
 }
 draw_header()
 let image_url_list = [

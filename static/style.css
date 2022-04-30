@@ -240,16 +240,52 @@ body {
 }
 
 
-/* ======= 라이트 플롯 박스 ======= */
+/* ================ 라이트 플롯 박스 시작 ================ */
+
 
 .right_float_box {
-    background-color: green;
     width: 300px;
     height: 445px;
     position: relative;
-    left: 30px;
-
+    margin: 30px 0 0 30px;
 }
+
+
+/* ======= 내 계정 박스 ======= */
+.rf_my_avatar_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.rf_my_avatar_front {
+    display: flex;
+}
+
+.rf_my_avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.rf_my_text {
+    margin-left: 20px;
+}
+
+.rf_my_text_name {
+    color: rgb(174, 174, 174);
+}
+
+.rf_my_button {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(65, 147, 239);
+}
+
+/* ======= 추천 계정 박스 ======= */
+
+
 
 /* ======= 카드 박스 전체 ======= */
 .main_card_box {
