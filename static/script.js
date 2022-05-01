@@ -145,7 +145,8 @@ const story_carousel_button_prev = document.querySelector('.story_carousel_prev_
 const story_carousel_button_next = document.querySelector('.story_carousel_next_btn_circle');
 const modal_btn = document.querySelector('.modal_btn');
 const exit_from_modal_btn = document.querySelector('.exit_from_modal')
-
+const modal = document.querySelector('.modal')
+// prev 버튼을 hidden으로 초기화
 main_card_carousel_button_prev.style.visibility = 'hidden';
 story_carousel_button_prev.style.visibility = 'hidden';
 // 카드 이미지 html 추가 for문
@@ -200,6 +201,7 @@ search_input_box.addEventListener('focusout', (e) => {
 // 메인카드 캐러셀 컨트롤러
 const card_main_image = document.querySelector('.card_main_image')
 let image_width = 614
+// 바디가 리사이징 될 때마다 image_size를 업데이트
 function image_resize() {
     if (window.innerWidth > 660) {
         card_main_image.style.width = 614 + "px"
@@ -267,12 +269,19 @@ story_carousel_button_prev.addEventListener('click', function () {
 })
 
 // 모달 컨트롤러
-
+function modal_out() {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+}
 modal_btn.addEventListener('click', () => {
-    document.querySelector('.modal').style.display = "flex";
+    modal.style.display = "flex";
     document.body.style.overflow = "hidden";
 })
-exit_from_modal_btn.addEventListener('click', () => {
-    document.querySelector('.modal').style.display = "none";
-    document.body.style.overflow = "auto"
-})
+exit_from_modal_btn.addEventListener('click', modal_out)
+modal.addEventListener('click', modal_out)
+window.onkeydown = function (e) {
+    if (e.key == 'Escape') {
+        modal_out()
+    }
+};
+
