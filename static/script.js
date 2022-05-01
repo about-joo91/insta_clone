@@ -7,6 +7,25 @@ function draw_header() {
                         </div>
                     `
     document.querySelector('.header_search_box').innerHTML = search_bar_html
+    // 서치바 아래 최근검색 사각박스 추가
+    recent_search_html = `
+    <div class="recent_search_category">
+        <div class="recent_search_category_front">최근 검색 항목</div>
+        <div class="recent_search_category_button">모두 지우기</div>
+    </div>
+    <div class="recent_search_id_card">
+        <div class="recent_search_id_card_front">
+            <img src="/static/images/space.jpg" class="recent_search_circle_avatar">
+            <div class="recent_search_circle_id_name">
+            about_joo<br>
+                <span class="recent_search_circle_name">Joo</span>
+            </div>
+
+        </div>
+        <i class="fa-solid fa-x recent_search_x_button"></i>
+    </div>
+    `
+    document.querySelector('.recent_search').innerHTML = recent_search_html
     // header_icons에 icon들과 avatar 추가
     icon_box_html = `
                     <div class ="header_icons">
@@ -145,7 +164,8 @@ const story_carousel_button_prev = document.querySelector('.story_carousel_prev_
 const story_carousel_button_next = document.querySelector('.story_carousel_next_btn_circle');
 const modal_btn = document.querySelector('.modal_btn');
 const exit_from_modal_btn = document.querySelector('.exit_from_modal')
-
+const modal = document.querySelector('.modal')
+// prev 버튼을 hidden으로 초기화
 main_card_carousel_button_prev.style.visibility = 'hidden';
 story_carousel_button_prev.style.visibility = 'hidden';
 // 카드 이미지 html 추가 for문
@@ -191,15 +211,18 @@ search_input_box.addEventListener('focus', (e) => {
     e.target.style.paddingLeft = "10px";
     e.target.style.paddingRight = "40px"
     search_bar_icon.style.visibility = "hidden";
+    document.querySelector('.recent_search').style.display = 'block';
 })
 search_input_box.addEventListener('focusout', (e) => {
     e.target.style.paddingLeft = "50px";
     e.target.style.paddingRight = "0px"
     search_bar_icon.style.visibility = "visible";
+    document.querySelector('.recent_search').style.display = 'none';
 })
 // 메인카드 캐러셀 컨트롤러
 const card_main_image = document.querySelector('.card_main_image')
 let image_width = 614
+// 바디가 리사이징 될 때마다 image_size를 업데이트
 function image_resize() {
     if (window.innerWidth > 660) {
         card_main_image.style.width = 614 + "px"
@@ -267,12 +290,19 @@ story_carousel_button_prev.addEventListener('click', function () {
 })
 
 // 모달 컨트롤러
-
+function modal_out() {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+}
 modal_btn.addEventListener('click', () => {
-    document.querySelector('.modal').style.display = "flex";
+    modal.style.display = "flex";
     document.body.style.overflow = "hidden";
 })
-exit_from_modal_btn.addEventListener('click', () => {
-    document.querySelector('.modal').style.display = "none";
-    document.body.style.overflow = "auto"
-})
+exit_from_modal_btn.addEventListener('click', modal_out)
+modal.addEventListener('click', modal_out)
+window.onkeydown = function (e) {
+    if (e.key == 'Escape') {
+        modal_out()
+    }
+};
+
