@@ -2,12 +2,10 @@
 function draw_header() {
     //  서치바에 아이콘과 인풋박스 추가
     search_bar_html = `
-                    <form class ="icon_with_search_bar">
                         <div class="search_bar_box"> 
                             <i class="fa-solid fa-magnifying-glass header_search_icon"></i> 
                             <input type="text" placeholder="검색" class ="header_input_field" height ="60">
                         </div>
-                    </form>
                     `
     document.querySelector('.header_search_box').innerHTML = search_bar_html
     // header_icons에 icon들과 avatar 추가
@@ -137,7 +135,7 @@ let image_url_list = [
     'pretty_image.jpg',
     'sunset.jpg'
 ]
-const image_width = 614
+
 const card_main_image_box = document.querySelector('.card_main_image_box');
 const main_card_carousel_button_next = document.querySelector('.carousel_next_btn_circle');
 const main_card_carousel_button_prev = document.querySelector('.carousel_prev_btn_circle');
@@ -148,26 +146,14 @@ const story_carousel_button_prev = document.querySelector('.story_carousel_prev_
 const story_carousel_button_next = document.querySelector('.story_carousel_next_btn_circle');
 const modal_btn = document.querySelector('.modal_btn');
 const exit_from_modal_btn = document.querySelector('.exit_from_modal')
+
 main_card_carousel_button_prev.style.visibility = 'hidden';
 story_carousel_button_prev.style.visibility = 'hidden';
-// input_box 포커스 컨트롤러
-search_input_box.addEventListener('focus', (e) => {
-    e.target.style.paddingLeft = "10px";
-    e.target.style.paddingRight = "40px"
-    search_bar_icon.style.visibility = "hidden";
-})
-search_input_box.addEventListener('focusout', (e) => {
-    e.target.style.paddingLeft = "50px";
-    e.target.style.paddingRight = "0px"
-    search_bar_icon.style.visibility = "visible";
-})
-// 메인카드 캐러셀 컨트롤러
-card_main_image_box.style.width = image_width * image_url_list.length + "px";
 // 카드 이미지 html 추가 for문
 let curIdx = 0;
 for (let i = 0; i < image_url_list.length; i++) {
     tmp_html = `
-                <img src="/static/images/main_card_image/${image_url_list[i]}"></img>
+                <img class="card_main_image" src="/static/images/main_card_image/${image_url_list[i]}"></img>
                 `
     card_main_image_box.innerHTML += tmp_html
 }
@@ -201,6 +187,23 @@ for (let i = 0; i < 16; i++) {
                 `
     document.querySelector('.story_box').innerHTML += tmp_html
 }
+// input_box 포커스 컨트롤러
+search_input_box.addEventListener('focus', (e) => {
+    e.target.style.paddingLeft = "10px";
+    e.target.style.paddingRight = "40px"
+    search_bar_icon.style.visibility = "hidden";
+})
+search_input_box.addEventListener('focusout', (e) => {
+    e.target.style.paddingLeft = "50px";
+    e.target.style.paddingRight = "0px"
+    search_bar_icon.style.visibility = "visible";
+})
+// 메인카드 캐러셀 컨트롤러
+const card_main_image = document.querySelector('.card_main_image')
+card_main_image.style.width = 614 + "px"
+let image_width = card_main_image.style.width.split('px')[0]
+card_main_image_box.style.width = image_width * image_url_list.length + "px";
+
 // 메인카드 캐러셀 버튼
 main_card_carousel_button_next.addEventListener('click', function () {
     if (curIdx < image_url_list.length - 1) {
@@ -237,7 +240,6 @@ story_btn_cnt = parseInt((80 * 16) / 315) - 1
 cur_story_idx = 0
 story_carousel_button_next.addEventListener('click', function () {
     if (++cur_story_idx == story_btn_cnt) {
-        console.log('?')
         story_carousel_box.style.transition = 500 + "ms"
         story_carousel_box.style.transform = "translate3d(-" + (story_carousel_width - 580) + "px,0px, 0px)";
         story_carousel_button_next.style.visibility = "hidden";
@@ -263,8 +265,6 @@ story_carousel_button_prev.addEventListener('click', function () {
 
 modal_btn.addEventListener('click', () => {
     document.querySelector('.modal').style.display = "flex";
-    console.log(document.querySelector('.modal').parentNode)
-    console.log(document.body.style)
     document.body.style.overflow = "hidden";
 })
 exit_from_modal_btn.addEventListener('click', () => {
