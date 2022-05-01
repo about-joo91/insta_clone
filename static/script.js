@@ -1,4 +1,3 @@
-
 function draw_header() {
     //  서치바에 아이콘과 인풋박스 추가
     search_bar_html = `
@@ -200,18 +199,24 @@ search_input_box.addEventListener('focusout', (e) => {
 })
 // 메인카드 캐러셀 컨트롤러
 const card_main_image = document.querySelector('.card_main_image')
-card_main_image.style.width = 614 + "px"
-let image_width = card_main_image.style.width.split('px')[0]
+let image_width = 614
+function image_resize() {
+    if (window.innerWidth > 660) {
+        card_main_image.style.width = 614 + "px"
+        image_width = card_main_image.style.width.split('px')[0]
+    } else {
+        image_width = window.innerWidth
+    }
+    card_main_image_box.style.transform = "translate3d(-" + image_width * curIdx + "px, 0px, 0px)"
+}
 card_main_image_box.style.width = image_width * image_url_list.length + "px";
-
 // 메인카드 캐러셀 버튼
 main_card_carousel_button_next.addEventListener('click', function () {
     if (curIdx < image_url_list.length - 1) {
         main_card_carousel_button_next.style.visibility = 'visible'
         main_card_carousel_button_prev.style.visibility = 'visible'
-        let next_page = (image_width * (curIdx + 1))
         card_main_image_box.style.transition = 500 + "ms"
-        card_main_image_box.style.transform = "translate3d(-" + next_page + "px, 0px, 0px)";
+        card_main_image_box.style.transform = "translate3d(-" + image_width * (curIdx + 1) + "px, 0px, 0px)";
         curIdx += 1
     }
     if (curIdx === image_url_list.length - 1) {
