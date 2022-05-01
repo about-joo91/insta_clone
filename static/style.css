@@ -1,20 +1,92 @@
+@media screen and (max-width : 935px) {
+    .right_float_box {
+        display: none;
+    }
+
+    .main_body {
+        justify-content: center;
+        width: 600px !important;
+    }
+
+    .main_body_left {
+        width: 100% !important;
+    }
+
+    .card_main_image {
+        width: auto !important;
+        object-fit: cover;
+    }
+
+
+    .main_header_name {
+        width: 14% !important;
+    }
+
+    .header_search_box {
+        min-width: 125px;
+        width: 25%;
+        z-index: 1;
+        margin-right: 10px;
+        -webkit-box-align: stretch;
+    }
+
+    .header_input_field {
+        width: 100%;
+
+    }
+
+    .header_icons {
+        min-width: 264px;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .header_search_box {
+        display: none !important;
+    }
+
+    .main_body {
+        width: 100vw !important;
+        margin: 0 !important;
+    }
+
+    .main_body_left {
+        width: 100vw !important;
+    }
+
+    .card_main_image {
+        width: 100vw !important;
+    }
+
+    .story_box {
+        padding: 10px 0 10px 0 !important;
+    }
+
+
+    .card_header,
+    .card_desc,
+    .card_under_comment_box {
+        border: 0 !important;
+    }
+}
+
 * {
     background-color: rgb(250, 250, 250);
 }
 
 html {
-    min-height: 100vh;
+    min-height: 100%;
+    margin: 0;
 }
 
 body {
     margin: 0;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 .main_header,
 .main_header_contents,
 .search_bar_box,
-.icon_with_search_bar,
 .header_search_icon,
 .main_header_icon_box,
 .header_icons,
@@ -78,7 +150,6 @@ body {
     margin: auto;
     text-align: center;
     position: relative;
-    top: calc(50% - 100);
     background-color: white;
     border-radius: 5%;
     padding-top: 2px;
@@ -116,6 +187,7 @@ body {
 /* 컨텐츠들이 975px 안에 있기 때문에
     따로 컨텐츠 div로 묶음 */
 .main_header_contents {
+    justify-content: space-between;
     width: 935px;
     display: flex;
     margin: auto;
@@ -124,29 +196,19 @@ body {
 
 /* ======= 메인 헤더 홈 네임카드 ======= */
 .main_header_name {
-    width: 33.5%;
     height: 60px;
     line-height: 60px;
     font-size: 30px;
+    width: 20%;
 }
 
 /* ======= 메인 헤더 검색창 ======= */
-.search_bar_box {
-    width: 100%;
-}
-
-.icon_with_search_bar {
-    max-width: 315px;
-    margin: auto;
-    height: 60px;
-
-}
 
 /* 인풋박스 */
 .header_input_field {
     height: 100%;
-    width: 225px;
-    padding: 10px 0 9px 45px;
+    width: 100%;
+    padding: 10px 10px 10px 45px;
     margin: 11px;
     border: 0px;
     border-radius: 10px;
@@ -168,17 +230,17 @@ body {
 /* ======= 메인 헤더 아이콘 상자 ======= */
 
 .main_header_icon_box {
-    width: 35%;
     height: 24px;
     align-self: center;
 }
 
 .header_icons {
     padding-left: 24px;
-    float: right;
 }
 
 .header_search_box {
+    min-width: 125px;
+    width: 25%;
     height: 60px;
 }
 
@@ -187,7 +249,7 @@ body {
 .saved_video_icon,
 .recommend_page_icon,
 .my_liked_page_icon {
-    font-size: 24px;
+    font-size: 22px;
     margin-right: 20px;
     background-color: white;
 }
@@ -222,14 +284,13 @@ body {
     height: 120px;
     border: 1px solid rgb(219, 219, 219);
     box-shadow: 1px rgb(219, 219, 219);
+    margin-bottom: 30px;
 }
 
 .story_box {
     padding: 10px;
     display: flex;
     float: left;
-    height: 120px;
-
 }
 
 .story_carousel_box {
@@ -266,7 +327,7 @@ body {
     border-radius: 50%;
     position: relative;
     z-index: 1;
-    top: 45px;
+    top: 35px;
     left: 10px;
     box-shadow: 0 1px 0 0 gray;
 }
@@ -285,8 +346,8 @@ body {
     border-radius: 50%;
     position: relative;
     z-index: 1;
-    top: 25px;
-    left: 572px;
+    top: 15px;
+    left: calc(100% - 35px);
     box-shadow: 0 1px 0 0 blur;
 }
 
@@ -395,7 +456,6 @@ body {
 /* ======= 카드 박스 전체 ======= */
 .main_card_box {
     width: 100%;
-    margin-top: 30px;
 }
 
 /* ======= 카드 헤더 ======= */
@@ -478,8 +538,8 @@ body {
     border-radius: 50%;
     position: relative;
     z-index: 1;
-    top: 360px;
-    left: 572px;
+    top: 350px;
+    left: calc(100% - 35px);
     box-shadow: 0 1px 0 0 gray;
 }
 
@@ -496,7 +556,7 @@ body {
 
 .card_desc {
     border: 1px solid rgb(219, 219, 219);
-    padding: 20px;
+    padding: 10px;
 }
 
 .card_desc_icon_box {
@@ -511,12 +571,12 @@ body {
 .card_plain_icon,
 .card_bookmark_icon {
     font-size: 24px;
-    margin-right: 20px;
+    margin: 0 10px 0 10px;
     background-color: white;
 }
 
 .liked_people_first_p {
-    margin: 20px 5px 0 0;
+    margin-top: 20px;
     display: flex;
     font-size: 16px;
 }
@@ -556,6 +616,10 @@ body {
     font-size: 16px;
     font-weight: bold;
     margin-right: 5px;
+}
+
+.card_desc_liked_box {
+    padding: 0 10px 0 10px;
 }
 
 .comment_cnt {
@@ -619,7 +683,7 @@ body {
 .under_comment_box_input_tag {
     border: 0;
     outline: 0;
-    width: 500px;
+    width: calc(100vw - 130px);
     font-size: 15px;
 }
 
