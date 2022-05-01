@@ -7,6 +7,25 @@ function draw_header() {
                         </div>
                     `
     document.querySelector('.header_search_box').innerHTML = search_bar_html
+    // 서치바 아래 최근검색 사각박스 추가
+    recent_search_html = `
+    <div class="recent_search_category">
+        <div class="recent_search_category_front">최근 검색 항목</div>
+        <div class="recent_search_category_button">모두 지우기</div>
+    </div>
+    <div class="recent_search_id_card">
+        <div class="recent_search_id_card_front">
+            <img src="/static/images/space.jpg" class="recent_search_circle_avatar">
+            <div class="recent_search_circle_id_name">
+            about_joo<br>
+                <span class="recent_search_circle_name">Joo</span>
+            </div>
+
+        </div>
+        <i class="fa-solid fa-x recent_search_x_button"></i>
+    </div>
+    `
+    document.querySelector('.recent_search').innerHTML = recent_search_html
     // header_icons에 icon들과 avatar 추가
     icon_box_html = `
                     <div class ="header_icons">
@@ -192,11 +211,13 @@ search_input_box.addEventListener('focus', (e) => {
     e.target.style.paddingLeft = "10px";
     e.target.style.paddingRight = "40px"
     search_bar_icon.style.visibility = "hidden";
+    document.querySelector('.recent_search').style.display = 'block';
 })
 search_input_box.addEventListener('focusout', (e) => {
     e.target.style.paddingLeft = "50px";
     e.target.style.paddingRight = "0px"
     search_bar_icon.style.visibility = "visible";
+    document.querySelector('.recent_search').style.display = 'none';
 })
 // 메인카드 캐러셀 컨트롤러
 const card_main_image = document.querySelector('.card_main_image')
