@@ -392,6 +392,7 @@ body {
 
 .rf_my_text {
     margin-left: 20px;
+    align-self: center;
 }
 
 .rf_my_text_name {
