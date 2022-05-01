@@ -122,7 +122,11 @@ body {
 .under_comment_box_input_tag,
 .card_under_comment_box_input_box,
 .emoji_icon,
-.card_under_comment_box_button {
+.card_under_comment_box_button,
+.liked_box_comment,
+.liked_box_comment_id,
+.liked_box_comment_desc,
+.link_of_id {
     background-color: white;
 }
 
