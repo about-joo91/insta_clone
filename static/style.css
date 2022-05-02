@@ -35,9 +35,22 @@
 
     }
 
-    .header_icons {
-        min-width: 264px;
+    .story_carousel_next_btn_circle {
+        left: 80% !important;
     }
+
+    .story_carousel_prev_btn_circle {
+        left: 16% !important;
+    }
+
+    .carousel_next_btn_circle {
+        left: 80% !important;
+    }
+
+    .carousel_prev_btn_circle {
+        left: 16% !important;
+    }
+
 }
 
 @media screen and (max-width: 660px) {
@@ -62,11 +75,47 @@
         padding: 10px 0 10px 0 !important;
     }
 
+    .story_carousel {
+        border: 0 !important;
+    }
+
+    .main_header {
+        border: 0 !important;
+    }
 
     .card_header,
     .card_desc,
     .card_under_comment_box {
         border: 0 !important;
+    }
+
+    .home_icon,
+    .dm_page_icon,
+    .saved_video_icon,
+    .recommend_page_icon,
+    .my_liked_page_icon {
+        margin-right: 0.5rem !important;
+    }
+
+
+    .story_carousel_next_btn_circle {
+        left: 90% !important;
+        top: 8% !important;
+    }
+
+    .story_carousel_prev_btn_circle {
+        left: 3% !important;
+        top: 8% !important;
+    }
+
+    .carousel_next_btn_circle {
+        left: 90% !important;
+        top: 45% !important;
+    }
+
+    .carousel_prev_btn_circle {
+        left: 5% !important;
+        top: 45% !important;
     }
 }
 
@@ -196,7 +245,7 @@ body {
     width: 935px;
     display: flex;
     margin: auto;
-    padding: 0px 20px 0px 20px;
+    padding: 0 1rem 0 1rem;
 }
 
 /* ======= 메인 헤더 홈 네임카드 ======= */
@@ -309,7 +358,6 @@ body {
 }
 
 .header_search_box {
-    min-width: 125px;
     width: 25%;
     height: 60px;
 }
@@ -320,7 +368,7 @@ body {
 .recommend_page_icon,
 .my_liked_page_icon {
     font-size: 22px;
-    margin-right: 20px;
+    margin-right: 1.5rem;
     background-color: white;
 }
 
@@ -395,10 +443,10 @@ body {
     background-color: white;
     opacity: 0.6;
     border-radius: 50%;
-    position: relative;
+    position: absolute;
     z-index: 1;
-    top: 35px;
-    left: 10px;
+    top: 10%;
+    left: 14%;
     box-shadow: 0 1px 0 0 gray;
 }
 
@@ -414,10 +462,10 @@ body {
     background-color: white;
     opacity: 0.6;
     border-radius: 50%;
-    position: relative;
+    position: absolute;
     z-index: 1;
-    top: 15px;
-    left: calc(100% - 35px);
+    top: 10%;
+    left: 58%;
     box-shadow: 0 1px 0 0 blur;
 }
 
@@ -586,9 +634,9 @@ body {
     opacity: 0.6;
     border-radius: 50%;
     z-index: 1;
-    position: relative;
-    top: 380px;
-    left: 10px;
+    position: absolute;
+    top: 55%;
+    left: 13%;
     box-shadow: 0 1px 0 0 gray;
 }
 
@@ -607,10 +655,10 @@ body {
     background-color: white;
     opacity: 0.6;
     border-radius: 50%;
-    position: relative;
+    position: absolute;
     z-index: 1;
-    top: 350px;
-    left: calc(100% - 35px);
+    top: 55%;
+    left: 58%;
     box-shadow: 0 1px 0 0 gray;
 }
 
@@ -699,6 +747,10 @@ body {
     color: rgb(174, 174, 174);
 }
 
+.comment_cnt :hover {
+    cursor: pointer;
+}
+
 .liked_box_comment {
     margin-top: 7px;
     display: flex;
@@ -732,6 +784,149 @@ body {
     margin-top: 7px;
     font-size: 10px;
     color: rgb(174, 174, 174);
+}
+
+/* ======= 댓글 더보기 모달창 ======= */
+.comment_modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    z-index: 2;
+    overflow: hidden;
+}
+
+.modal_wrapper {
+    background-color: transparent;
+    height: 100%;
+    padding: 24px 64px 24px 64px;
+    overflow: hidden;
+}
+
+.comment_modal_body {
+    position: relative;
+    top: 15rem;
+    display: flex;
+    max-height: 100%;
+    width: 100%;
+}
+
+.comment_modal_body_front {
+    width: 70%;
+}
+
+
+.comment_modal_img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.comment_modal_body_back {
+    width: 415px;
+}
+
+.comment_modal_body_back_header {
+    padding: 20px 10px 20px 10px;
+    height: 40px;
+    border-bottom: 1px solid rgb(174, 174, 174);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment_modal_body_back_header_front {
+    display: flex;
+    align-items: center;
+}
+
+.comment_modal_body_back_header_id {
+    margin-left: 10px;
+}
+
+.comment_modal_circle_avatar_outline_border {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    border: salmon 1px solid;
+    text-align: center;
+}
+
+.comment_modal_circle_avatar {
+    border-radius: 50%;
+    padding-top: 2.5px;
+    width: 30px;
+    height: 30px;
+
+}
+
+.comment_modal_following_btn:hover {
+    cursor: pointer;
+}
+
+.fa-circle {
+    font-size: 4px;
+    margin: 0 2px 0 2px;
+}
+
+.comment_modal_body_back_body {
+    padding: 15px 10px 15px 10px;
+}
+
+.comment_modal_body_back_body_my_circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 2.5px 0 0 2.5px;
+}
+
+.comment_modal_body_back_body_my_circle_outline {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px salmon solid;
+}
+
+.comment_modal_body_back_body_my_account_front {
+    display: flex;
+    align-items: center;
+}
+
+.comment_modal_body_back_body_my_account_id {
+    margin-left: 10px;
+}
+
+.comment_modal_body_back_body_my_account_desc {
+    margin-left: 10px;
+}
+
+.comment_modal_body_back_body_my_account_day_before {
+    position: relative;
+    font-size: 10px;
+    left: 50px;
+    background-color: transparent;
+    color: rgb(174, 174, 174);
+}
+
+.comment_modal_body_back_body_x_btn {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    font-size: 40px;
+    background-color: transparent;
+    color: white;
+}
+
+.comment_modal_body_back_body_x_btn:hover {
+    cursor: pointer;
 }
 
 /* ======= 카드 아래쪽 댓글 입력 상자 ======= */

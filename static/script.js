@@ -145,6 +145,35 @@ function draw_header() {
     document.querySelector('.rf_my_avatar_box').innerHTML = rf_float_box_my_account_html
     // 라이트 플롯 박스 추천 계정 칸
 
+    comment_modal_body_back_header_html = `
+                                            <div class ="comment_modal_body_back_header_front">
+                                                <div class="comment_modal_circle_avatar_outline_border">
+                                                    <img src="/static/images/character.jpeg" class="comment_modal_circle_avatar">
+                                                </div>
+                                                <div class="comment_modal_body_back_header_id">about_joo</div>
+                                                <i class="fa-solid fa-circle"></i>
+                                                <div class="comment_modal_following_btn">
+                                                    팔로잉
+                                                </div>
+                                            </div>
+                                            <i class="fa-solid fa-ellipsis comment_modal_body_back_header_ellipsis"></i>
+                                            `
+    document.querySelector('.comment_modal_body_back_header').innerHTML = comment_modal_body_back_header_html
+
+    comment_modal_body_back_body_html = `
+    <div class="comment_modal_body_back_body_my_account">
+        <div class="comment_modal_body_back_body_my_account_front">
+            <div class="comment_modal_body_back_body_my_circle_outline">
+                <img class="comment_modal_body_back_body_my_circle"src="/static/images/character.jpeg">
+            </div>
+            <div class="comment_modal_body_back_body_my_account_id">about_joo</div>
+            <div class="comment_modal_body_back_body_my_account_desc">폭포 예쁘다 얘!</div>    
+        </div>
+        <div class="comment_modal_body_back_body_my_account_day_before">2일전</div>
+    </div>
+    <div class="comment_modal_body_back_body_others"></div>
+    `
+    document.querySelector('.comment_modal_body_back_body').innerHTML = comment_modal_body_back_body_html
 }
 draw_header()
 let image_url_list = [
@@ -165,6 +194,10 @@ const story_carousel_button_next = document.querySelector('.story_carousel_next_
 const modal_btn = document.querySelector('.modal_btn');
 const exit_from_modal_btn = document.querySelector('.exit_from_modal')
 const modal = document.querySelector('.modal')
+const comment_cnt = document.querySelector('.comment_cnt')
+const comment_modal = document.querySelector('.comment_modal')
+const comment_modal_body = document.querySelector('.comment_modal_body')
+const comment_modal_body_back_body_x_btn = document.querySelector('.comment_modal_body_back_body_x_btn')
 // prev 버튼을 hidden으로 초기화
 main_card_carousel_button_prev.style.visibility = 'hidden';
 story_carousel_button_prev.style.visibility = 'hidden';
@@ -221,9 +254,10 @@ search_input_box.addEventListener('focusout', (e) => {
 })
 // 메인카드 캐러셀 컨트롤러
 const card_main_image = document.querySelector('.card_main_image')
-let image_width = 614
+let image_width = window.innerWidth;
 // 바디가 리사이징 될 때마다 image_size를 업데이트
 function image_resize() {
+    comment_modal_body.style.top = (window.innerHeight - comment_modal_body.offsetHeight) / 2 + "px"
     if (window.innerWidth > 660) {
         card_main_image.style.width = 614 + "px"
         image_width = card_main_image.style.width.split('px')[0]
@@ -294,15 +328,36 @@ function modal_out() {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
 }
-modal_btn.addEventListener('click', () => {
+function modal_in() {
     modal.style.display = "flex";
+    document.body.style.overflow = "hidden"
+}
+function comment_modal_out() {
+    comment_modal.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+function comment_modal_in() {
+    comment_modal.style.display = "flex";
     document.body.style.overflow = "hidden";
-})
+
+}
+// 엘립시스 모달 컨트롤러
+modal_btn.addEventListener('click', modal_in)
 exit_from_modal_btn.addEventListener('click', modal_out)
 modal.addEventListener('click', modal_out)
+
+// comment_modal 컨트롤러
+comment_cnt.addEventListener('click', comment_modal_in)
+comment_modal_body_back_body_x_btn.addEventListener('click', comment_modal_out)
+comment_modal.addEventListener('click', comment_modal_out)
+
 window.onkeydown = function (e) {
     if (e.key == 'Escape') {
         modal_out()
+        comment_modal_out()
     }
 };
+
+
+
 
