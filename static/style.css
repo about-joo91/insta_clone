@@ -35,22 +35,6 @@
 
     }
 
-    .story_carousel_next_btn_circle {
-        left: 80% !important;
-    }
-
-    .story_carousel_prev_btn_circle {
-        left: 16% !important;
-    }
-
-    .carousel_next_btn_circle {
-        left: 80% !important;
-    }
-
-    .carousel_prev_btn_circle {
-        left: 16% !important;
-    }
-
 }
 
 @media screen and (max-width: 660px) {
@@ -97,26 +81,20 @@
         margin-right: 0.5rem !important;
     }
 
+    .carousel_next_btn_circle {
+        left: 34.5rem !important;
+    }
 
     .story_carousel_next_btn_circle {
-        left: 90% !important;
-        top: 8% !important;
+        top: 6rem !important;
+        left: 34rem !important;
     }
 
     .story_carousel_prev_btn_circle {
-        left: 3% !important;
-        top: 8% !important;
+        top: 6rem !important;
+        left: 1rem !important;
     }
 
-    .carousel_next_btn_circle {
-        left: 90% !important;
-        top: 45% !important;
-    }
-
-    .carousel_prev_btn_circle {
-        left: 5% !important;
-        top: 45% !important;
-    }
 }
 
 * {
@@ -443,10 +421,10 @@ body {
     background-color: white;
     opacity: 0.6;
     border-radius: 50%;
-    position: absolute;
+    position: relative;
     z-index: 1;
-    top: 10%;
-    left: 14%;
+    top: 2.5rem;
+    left: 1rem;
     box-shadow: 0 1px 0 0 gray;
 }
 
@@ -462,10 +440,10 @@ body {
     background-color: white;
     opacity: 0.6;
     border-radius: 50%;
-    position: absolute;
+    position: relative;
     z-index: 1;
-    top: 10%;
-    left: 58%;
+    top: 1rem;
+    left: 35rem;
     box-shadow: 0 1px 0 0 blur;
 }
 
@@ -634,9 +612,9 @@ body {
     opacity: 0.6;
     border-radius: 50%;
     z-index: 1;
-    position: absolute;
-    top: 55%;
-    left: 13%;
+    position: relative;
+    top: 37.5rem;
+    left: 2rem;
     box-shadow: 0 1px 0 0 gray;
 }
 
@@ -655,10 +633,11 @@ body {
     background-color: white;
     opacity: 0.6;
     border-radius: 50%;
-    position: absolute;
+    position: relative;
     z-index: 1;
-    top: 55%;
-    left: 58%;
+    top: 36rem;
+    left: 37rem;
+
     box-shadow: 0 1px 0 0 gray;
 }
 
