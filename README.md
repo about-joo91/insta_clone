@@ -3,7 +3,7 @@
 인스타그램과 최대한 비슷하게 만들려고 노력했습니다.
 
 ## 목업 만들기
-![Uploading 인스타 클론 목업.png…]()
+https://www.figma.com/file/yaZNezu1wyCMvXCJcW82hL/Untitled?node-id=3%3A2
 ## 반응혀 웹 디자인
 
 - 935px 이상
