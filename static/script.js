@@ -159,7 +159,7 @@ function draw_header() {
                                             <i class="fa-solid fa-ellipsis comment_modal_body_back_header_ellipsis"></i>
                                             `
     document.querySelector('.comment_modal_body_back_header').innerHTML = comment_modal_body_back_header_html
-
+    let top_of_comment_modal = (window.innerHeight - document.querySelector('.comment_modal_body_back_body').offsetHeight) / 2 + "px"
     comment_modal_body_back_body_html = `
     <div class="comment_modal_body_back_body_my_account">
         <div class="comment_modal_body_back_body_my_account_front">
@@ -173,6 +173,7 @@ function draw_header() {
     </div>
     <div class="comment_modal_body_back_body_others"></div>
     `
+    document.querySelector('.comment_modal_body_back_body').style.top = top_of_comment_modal
     document.querySelector('.comment_modal_body_back_body').innerHTML = comment_modal_body_back_body_html
 }
 draw_header()
