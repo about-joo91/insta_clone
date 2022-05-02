@@ -31,4 +31,4 @@
 
 캐러셀 양쪽에 트랜지션을 넣어 카드가 슬라이딩되는 애니매이팅으 넣었습니다.
 
-인스타 클론 설명 영상 :  https://youtu.be/1yopNwXYsXU
+인스타 클론 설명 영상 : https://youtu.be/YLSBOC5AdSo
