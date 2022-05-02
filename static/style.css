@@ -82,16 +82,16 @@
     }
 
     .carousel_next_btn_circle {
-        left: 34.5rem !important;
+        left: 30rem !important;
     }
 
     .story_carousel_next_btn_circle {
-        top: 6rem !important;
-        left: 34rem !important;
+        top: 1rem !important;
+        left: 32rem !important;
     }
 
     .story_carousel_prev_btn_circle {
-        top: 6rem !important;
+        top: 2.5rem !important;
         left: 1rem !important;
     }
 
@@ -374,8 +374,7 @@ body {
 
 /* ======= 스토리 캐러셀 ======= */
 .story_carousel {
-    width: 100%;
-    margin: auto;
+    width: calc(100% -5px);
     overflow-x: hidden;
     height: 120px;
     border: 1px solid rgb(219, 219, 219);
